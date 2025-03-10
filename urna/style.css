@@ -124,7 +124,7 @@ body {
 }
 
 .blink {
-    animation: blink 2s infinite;
+    animation: blink 1s infinite;
 }
 
 .division-left--4 {
