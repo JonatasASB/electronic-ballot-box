@@ -81,16 +81,17 @@ body {
 
 .division-1--left {
     flex: 1;
-
     display: flex;
     flex-direction: column;
     padding: 20px;
-    justify-content: space-around;
+}
 
+.division-left--1 {
+    margin: 20px 0;
 }
 
 .division-left--2 {
-    text-align: center;
+    margin: 0 0 20px 100px;
 }
 
 .division-left--3 {
@@ -163,7 +164,7 @@ body {
     margin-top: -15px;
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 50px;
     font-size: 14px;
     border-top: 3px solid #000;
     padding-left: 10px;
