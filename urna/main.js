@@ -96,5 +96,15 @@ function toCorrect() {
 };
 
 function confirm() {
-    alert('CONFIRMA')
+    let voteConfirmed = false
+    let step = etapas[currentStage];
+    if (voteWhite === true) {
+        voteConfirmed = true
+        console.log('VOTO EM BRANCO')
+    } else if (numbersInput.length === step.numeros) {
+        voteConfirmed = true
+        console.log('VOTO NULO OU CANDIDATO:', numbersInput)
+    }
+
+
 };
