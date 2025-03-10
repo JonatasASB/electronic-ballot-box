@@ -26,13 +26,41 @@ function startStage() {
     voteIndication.style.display = 'none';
     office.innerHTML = step.titulo;
     description.innerHTML = '';
-    informative.innerHTML = '';
+    informative.style.display = 'none'
     photos.innerHTML = '';
     numbersOutput.innerHTML = numberHTML
 }
 startStage()
 function updateInterface() {
-    alert('fim')
+    console.log(numbersInput)
+    let step = etapas[currentStage];
+
+    let candidate = step.candidatos.filter((item) => {
+        if (item.numero === numbersInput) {
+            return true
+        } else {
+            return false
+        }
+    });
+    if (candidate.length > 0) {
+        voteIndication.style.display = 'block';
+        description.innerHTML = `Nome: ${candidate[0].nome}<br>
+        Partido: ${candidate[0].partido}<br>
+        Vice: ${candidate[0].vice}`;
+        informative.style.display = 'flex'
+        let photosHTML = '';
+        for (let i in candidate[0].fotos) {
+            photosHTML += `<div class="division-right--img">
+                        <img src="urna/images/${candidate[0].fotos[i].url}" alt="">
+                        <span>${candidate[0].fotos[i].legenda}</span>
+                    </div>`
+        }
+        photos.innerHTML = photosHTML
+    } else {
+        description.innerHTML = `<span class="blink" style="font-size: 3em; text-align: center"; font-weight: bold>VOTO NULO</span>`;
+        voteIndication.style.display = 'block'
+        informative.style.display = 'flex'
+    }
 }
 function clicking(number) {
     let numberElement = document.querySelector('.numbers.blink');

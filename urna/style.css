@@ -131,6 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     line-height: 25px;
+    margin-top: 20px
 }
 
 .division-1--right {
