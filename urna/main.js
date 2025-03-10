@@ -8,10 +8,13 @@ let numbersOutput = document.querySelector('.division-left--3');
 
 let currentStage = 0;
 let numbersInput = '';
+let voteWhite = false;
 
 function startStage() {
 
     let numberHTML = '';
+    numbersInput = '';
+    voteWhite = false
 
     let step = etapas[currentStage];
 
@@ -77,11 +80,19 @@ function clicking(number) {
 
 };
 function white() {
-    alert('BRANCO')
+    if (numbersInput === '') {
+        voteWhite = true;
+        voteIndication.style.display = 'block';
+        numbersOutput.innerHTML = '';
+        description.innerHTML = `<span class="blink" style="font-size: 2em; position: absolute; font-weight: bold; margin-left: 50px">VOTO EM BRANCO</span>`;
+        informative.style.display = 'flex'
+    } else {
+        alert('Aperte em corrigir para votar em branco')
+    }
 };
 
 function toCorrect() {
-    alert('CORRIGE')
+    startStage()
 };
 
 function confirm() {
