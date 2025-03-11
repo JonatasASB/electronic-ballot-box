@@ -9,6 +9,7 @@ let numbersOutput = document.querySelector('.division-left--3');
 let currentStage = 0;
 let numbersInput = '';
 let voteWhite = false;
+let votes = [];
 
 function startStage() {
 
@@ -35,7 +36,7 @@ function startStage() {
 }
 startStage()
 function updateInterface() {
-    console.log(numbersInput)
+
     let step = etapas[currentStage];
 
     let candidate = step.candidatos.filter((item) => {
@@ -100,6 +101,7 @@ function white() {
 };
 
 function toCorrect() {
+
     startStage()
 };
 
@@ -108,18 +110,26 @@ function confirm() {
     let step = etapas[currentStage];
     if (voteWhite === true) {
         voteConfirmed = true
-        console.log('VOTO EM BRANCO')
+
+        votes.push({
+            titulo: step.titulo,
+            voto: 'BRANCO'
+        })
     } else if (numbersInput.length === step.numeros) {
         voteConfirmed = true
-        console.log('VOTO NULO OU CANDIDATO:', numbersInput)
+        votes.push({
+            titulo: step.titulo,
+            voto: numbersInput
+        })
+
     }
     if (voteConfirmed) {
-
+        currentStage++;
         if (etapas[currentStage] !== undefined) {
-            currentStage++;
             startStage()
         } else {
-
+            document.querySelector('.screen').innerHTML = `<div class = "screen blink" style = "justify-content: center; align-items:center; font-size: 100px; font-weight: bold; letter-spacing: 10px">FIM<div>`
+            console.log(votes)
         }
 
     }
