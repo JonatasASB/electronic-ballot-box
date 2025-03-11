@@ -112,6 +112,38 @@ body {
     }
 }
 
+@keyframes end {
+    from {
+        height: 15px;
+        width: 1%;
+        background-color: green;
+    }
+
+    to {
+        height: 15px;
+        width: 100%;
+        background-color: green;
+    }
+}
+
+.animation-end {
+
+    width: 350px;
+    position: absolute;
+    transform: translate(50px, 150px);
+}
+
+.animation-fac {
+    animation: end 5s
+}
+
+.recording {
+    font-size: 30px;
+    letter-spacing: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
 .numbers {
     width: 25px;
     height: 35px;

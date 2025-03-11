@@ -5,6 +5,10 @@ let description = document.querySelector('.division-left--4 ');
 let informative = document.querySelector('.division-2');
 let photos = document.querySelector('.division-1--right');
 let numbersOutput = document.querySelector('.division-left--3');
+let audioOps = document.querySelector('.ops');
+let audioFim = document.querySelector('.fim');
+let audioInter = document.querySelector('.inter');
+let animationEnd = document.querySelector('.animation-end');
 
 let currentStage = 0;
 let numbersInput = '';
@@ -33,6 +37,7 @@ function startStage() {
     informative.style.display = 'none'
     photos.innerHTML = '';
     numbersOutput.innerHTML = numberHTML
+    animationEnd.innerHTML = '';
 }
 startStage()
 function updateInterface() {
@@ -54,7 +59,6 @@ function updateInterface() {
         informative.style.display = 'flex'
         let photosHTML = '';
         for (let i in candidate[0].fotos) {
-            console.log(candidate[0].fotos[i].small)
             if (candidate[0].fotos[i].small) {
                 photosHTML += `<div class="division-right--img small">
                         <img src="urna/images/${candidate[0].fotos[i].url}" alt="">
@@ -101,7 +105,7 @@ function white() {
 };
 
 function toCorrect() {
-
+    audioOps.play()
     startStage()
 };
 
@@ -110,26 +114,39 @@ function confirm() {
     let step = etapas[currentStage];
     if (voteWhite === true) {
         voteConfirmed = true
-
         votes.push({
             titulo: step.titulo,
             voto: 'BRANCO'
-        })
+        });
     } else if (numbersInput.length === step.numeros) {
         voteConfirmed = true
         votes.push({
             titulo: step.titulo,
             voto: numbersInput
-        })
-
+        });
     }
     if (voteConfirmed) {
         currentStage++;
         if (etapas[currentStage] !== undefined) {
+            audioInter.play()
             startStage()
         } else {
-            document.querySelector('.screen').innerHTML = `<div class = "screen blink" style = "justify-content: center; align-items:center; font-size: 100px; font-weight: bold; letter-spacing: 10px">FIM<div>`
-            console.log(votes)
+            voteIndication.innerHTML = '';
+            informative.innerHTML = ''
+            office.innerHTML = '';
+            description.innerHTML = '';
+            photos.innerHTML = '';
+            numbersOutput.innerHTML = '';
+            animationEnd.innerHTML = `<div class="animation-fac">
+                </div>
+                <div class="recording">GRAVANDO</div>`
+            setTimeout(() => {
+                document.querySelector('.screen').innerHTML = `<div class = "screen blink" style = "justify-content: center; align-items:center; font-size: 100px; font-weight: bold; letter-spacing: 10px">FIM<div>`
+                console.log(votes)
+                audioFim.play()
+            }, 5000);
+
+
         }
 
     }
