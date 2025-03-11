@@ -14,6 +14,7 @@ let currentStage = 0;
 let numbersInput = '';
 let voteWhite = false;
 let votes = [];
+let voteConfirmed = false;
 
 function startStage() {
 
@@ -39,7 +40,6 @@ function startStage() {
     numbersOutput.innerHTML = numberHTML
     animationEnd.innerHTML = '';
 }
-startStage()
 function updateInterface() {
 
     let step = etapas[currentStage];
@@ -93,39 +93,45 @@ function clicking(number) {
 
 };
 function white() {
-    if (numbersInput === '') {
-        voteWhite = true;
-        voteIndication.style.display = 'block';
-        numbersOutput.innerHTML = '';
-        description.innerHTML = `<span class="blink" style="font-size: 2em; position: absolute; font-weight: bold; margin-left: 50px">VOTO EM BRANCO</span>`;
-        informative.style.display = 'flex'
+    let step = etapas[currentStage];
+    if (step !== undefined) {
+        if (numbersInput === '') {
+            voteWhite = true;
+            voteIndication.style.display = 'block';
+            numbersOutput.innerHTML = '';
+            description.innerHTML = `<span class="blink" style="font-size: 2em; position: absolute; font-weight: bold; margin-left: 50px">VOTO EM BRANCO</span>`;
+            informative.style.display = 'flex'
+        } else {
+            alert('Aperte em corrigir para votar em branco')
+        }
     } else {
-        alert('Aperte em corrigir para votar em branco')
+        alert('Voto já confirmado')
     }
 };
 
 function toCorrect() {
-    audioOps.play()
-    startStage()
+    if (currentStage < 2) {
+        audioOps.play()
+        startStage()
+    }
 };
 
 function confirm() {
-    let voteConfirmed = false
     let step = etapas[currentStage];
-    if (voteWhite === true) {
+    if (voteWhite === true && step !== undefined) {
         voteConfirmed = true
         votes.push({
             titulo: step.titulo,
             voto: 'BRANCO'
         });
-    } else if (numbersInput.length === step.numeros) {
+    } else if (numbersInput.length === step.numeros && step !== undefined) {
         voteConfirmed = true
         votes.push({
             titulo: step.titulo,
             voto: numbersInput
         });
     }
-    if (voteConfirmed) {
+    if (voteConfirmed && numbersInput.length === step.numeros || voteConfirmed && voteWhite) {
         currentStage++;
         if (etapas[currentStage] !== undefined) {
             audioInter.play()
@@ -145,10 +151,9 @@ function confirm() {
                 console.log(votes)
                 audioFim.play()
             }, 5000);
-
-
         }
-
     }
-
-};
+    console.log(voteConfirmed)
+    console.log(currentStage)
+}
+startStage()
