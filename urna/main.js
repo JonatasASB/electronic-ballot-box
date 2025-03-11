@@ -54,8 +54,7 @@ function updateInterface() {
     if (candidate.length > 0) {
         voteIndication.style.display = 'block';
         description.innerHTML = `Nome: ${candidate[0].nome}<br>
-        Partido: ${candidate[0].partido}<br>
-        Vice: ${candidate[0].vice}`;
+        Partido: ${candidate[0].partido}<br>`
         informative.style.display = 'flex'
         let photosHTML = '';
         for (let i in candidate[0].fotos) {
