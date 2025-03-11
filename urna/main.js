@@ -53,10 +53,18 @@ function updateInterface() {
         informative.style.display = 'flex'
         let photosHTML = '';
         for (let i in candidate[0].fotos) {
-            photosHTML += `<div class="division-right--img">
+            console.log(candidate[0].fotos[i].small)
+            if (candidate[0].fotos[i].small) {
+                photosHTML += `<div class="division-right--img small">
                         <img src="urna/images/${candidate[0].fotos[i].url}" alt="">
                         <span>${candidate[0].fotos[i].legenda}</span>
                     </div>`
+            } else {
+                photosHTML += `<div class="division-right--img">
+                            <img src="urna/images/${candidate[0].fotos[i].url}" alt="">
+                            <span>${candidate[0].fotos[i].legenda}</span>
+                        </div>`
+            }
         }
         photos.innerHTML = photosHTML
     } else {
@@ -105,6 +113,15 @@ function confirm() {
         voteConfirmed = true
         console.log('VOTO NULO OU CANDIDATO:', numbersInput)
     }
+    if (voteConfirmed) {
 
+        if (etapas[currentStage] !== undefined) {
+            currentStage++;
+            startStage()
+        } else {
+
+        }
+
+    }
 
 };
