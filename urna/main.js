@@ -136,6 +136,7 @@ function confirm() {
             audioInter.play()
             startStage()
         } else {
+            audioInter.play()
             voteIndication.innerHTML = '';
             informative.innerHTML = ''
             office.innerHTML = '';
