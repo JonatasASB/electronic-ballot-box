@@ -1,50 +1,48 @@
 
-
 # ⚡ Electronic Voting Machine - Voting Simulator  
 
-This project is a simulation of an electronic voting machine, developed for educational purposes and to demonstrate how an electronic voting system works.  
+![Electronic Voting Machine](urna/images/Captura%20de%20tela%202025-03-25%20154504.png)  
+
+Este projeto é uma simulação de uma urna eletrônica, desenvolvido para fins educacionais e para demonstrar o funcionamento de um sistema de votação eletrônica.  
 
 ## ✨ Features  
 
-- **Councilor Voting:** The voter must enter 5 numbers.  
-- **Mayor Voting:** The voter must enter 2 numbers.  
-- **Vote Confirmation:**  
-  - The vote will only be confirmed if all numbers are entered or if the **WHITE** button is pressed.  
-- **Vote Correction:**  
-  - If the voter wants to correct their vote, they can press the **CORRECT** button.  
-- **Completion:**  
-  - After confirming the vote, a **"RECORDING"** animation will be displayed.  
-  - Then, the screen will show the message **"END"**, indicating the process is complete.  
+- **Votação para Vereador:** O eleitor deve inserir 5 números.  
+- **Votação para Prefeito:** O eleitor deve inserir 2 números.  
+- **Confirmação do Voto:**  
+  - O voto só será confirmado se todos os números forem digitados ou se o botão **BRANCO** for pressionado.  
+- **Correção do Voto:**  
+  - Caso o eleitor queira corrigir seu voto, pode pressionar o botão **CORRIGE**.  
+- **Finalização:**  
+  - Após a confirmação, uma animação **"GRAVANDO"** será exibida.  
+  - Em seguida, a tela mostrará a mensagem **"FIM"**, indicando a conclusão do processo.  
 
-## 💪 Technologies Used  
+## 💪 Tecnologias Utilizadas  
 
-- **HTML, CSS, and JavaScript** for the interface and interactive functionalities.   
+- **HTML, CSS e JavaScript** para a interface e funcionalidades interativas.   
 
-## 👥 How to Use  
+## 👥 Como Usar  
 
-1. Clone the repository:  
+1. Clone o repositório:  
    ```bash
    git clone https://github.com/your-username/electronic-voting-machine.git
    ```  
-2. Navigate to the project folder:  
+2. Navegue até a pasta do projeto:  
    ```bash
    cd electronic-voting-machine
    ```  
-3. Open the `index.html` file in a browser.  
-4. Follow the on-screen instructions to vote.  
+3. Abra o arquivo `index.html` em um navegador.  
+4. Siga as instruções na tela para votar.  
 
-## 🌟 Future Improvements  
+## 🌟 Melhorias Futuras  
 
-- Implement a database to store votes.  
-- Create a vote-counting report.  
-- Improve the graphical interface and accessibility.  
+- Implementar um banco de dados para armazenar votos.  
+- Criar um relatório de contagem de votos.  
+- Melhorar a interface gráfica e acessibilidade.  
 
-## 🚀 Contribution  
+## 🚀 Contribuição  
 
-Feel free to contribute! Submit a pull request or open an issue with suggestions.  
+Sinta-se à vontade para contribuir! Envie um pull request ou abra uma issue com sugestões.  
 
-Developed by **Jonatas Abner**  
-
----
-
-Se precisar de ajustes, é só avisar! 🚀
+Desenvolvido por **Jonatas Abner**  
+```
